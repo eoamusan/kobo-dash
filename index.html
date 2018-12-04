@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    	<title>Kobo360 Dashboard</title>
+    	<link href="img/koboico.png" rel="shortcut icon" type="image/png">
+    	<link href="css/style.css" rel="stylesheet">
+    	<link rel="stylesheet" href="css/material-icons.css">
+    	<script src="js/jquery-3.3.1.min.js"></script>
+    	<script type="text/javascript" src="js/Chart.bundle.min.js"></script>
+    	<script src="js/app.js"></script>
+  	</head>
+  	<body>
+  		<div class="head">
+  			<div class="logo">
+  				<img src="img/dhl-logo.png" class="center_item">
+  				<img src="img/dhl-logo-white.png" class="center_item white">
+  			</div>
+  			<div class="links">
+  				<div class="link mustard-color">
+  					<span class="center_item nowrap">
+  						Dashboard
+  					</span>
+  				</div>
+  				<div class="link">
+  					<span class="center_item nowrap">
+  						Requests
+  					</span>
+  				</div>
+  				<div class="link">
+  					<span class="center_item nowrap">
+  						Trips
+  					</span>
+  				</div>
+  				<div class="link">
+  					<span class="center_item nowrap">
+  						Routes
+  					</span>
+  				</div>
+  				<div class="link">
+  					<span class="center_item nowrap">
+  						Wallet
+  					</span>
+  				</div>
+  				<div class="link">
+  					<span class="center_item nowrap">
+  						Notifications <span class="mustard-color">| 320</span>
+  					</span>
+  				</div>
+  				<div class="link">
+  					<span class="center_item nowrap">
+  						Profile
+  					</span>
+  				</div>
+  				<div class="link">
+  					<span class="center_item nowrap">
+  						Logout
+  					</span>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="body">
+  			<div class="left">
+  				<div class="welcome">
+  					<p class="top">WELCOME</p>
+  					<p class="bottom">DHL Worldwide<br/>Express</p>
+  				</div>
+  				<div class="summaries">
+  					<div class="summary">
+  						<div class="label">
+  							Total requests
+  						</div>
+  						<div class="value">
+  							3,565
+  						</div>
+  					</div>
+  					<div class="summary no_underline">
+  						<div class="label">
+  							Total invoices
+  						</div>
+  						<div class="value">
+  							785
+  						</div>
+  					</div>
+  					<div class="summary">
+  						<div class="label">
+  							Total invoices
+  						</div>
+  						<div class="value">
+  							785
+  						</div>
+  						<div class="value nigeria">
+  							<div class="flag"></div>
+  							<div class="label">
+  								NGN | Nigerian Naira
+  							</div>
+  						</div>
+  					</div>
+  					<div class="summary no_underline">
+  						<div class="label">
+  							Unread messages
+  						</div>
+  						<div class="value">
+  							34
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="right">
+  				<div class="section">
+  					<div class="title">
+  						<div class="label">
+  							Shipping Requests & Trip History
+  						</div>
+  						<div class="arrows">
+  							<div class="left">
+  								<i class="material-icons center_item">arrow_back</i>
+  							</div>
+  							<div class="right">
+  								<i class="material-icons center_item">arrow_forward</i>
+  							</div>
+  						</div>
+  					</div>
+  					<div class="info">
+  						<div class="indicator mustard"></div>
+  						<div class="label">
+  							Shipping  requests
+  						</div>
+  						<div class="indicator blue"></div>
+  						<div class="label">
+  							Completed Trips
+  						</div>
+  					</div>
+  					<div class="graph">
+  						<canvas id="requests"></canvas>
+  					</div>
+  				</div>
+  				<div class="section">
+  					<div class="title">
+  						<div class="label">
+  							Spending History
+  						</div>
+  						<div class="arrows">
+  							<div class="left">
+  								<i class="material-icons center_item">arrow_back</i>
+  							</div>
+  							<div class="right">
+  								<i class="material-icons center_item">arrow_forward</i>
+  							</div>
+  						</div>
+  					</div>
+  					<div class="info">
+  						<div class="revenue_indicator">
+  							<div class="circle"></div>
+  						</div>
+  						<div class="label">
+  							Revenue (NGN)
+  						</div>
+  						<div class="flag small_flag"></div>
+  					</div>
+  					<div class="graph">
+  						<canvas id="spending"></canvas>
+  					</div>
+  				</div>
+  				<div class="section">
+  					<div class="title">
+  						<div class="label sales">
+  							Sales Report
+  						</div>
+  						<div class="toggle">
+  							<div class="chart">
+  								<span class="center_item nowrap">
+  									Chart View
+  								</span>
+  							</div>
+  							<div class="recent mustard">
+  								<span class="center_item nowrap">
+  									Recent Request
+  								</span>
+  							</div>
+  						</div>
+  					</div>
+  					<div class="requests">
+  						<div class="labels">
+  							<div class="fraction1">
+  								ID & Date
+  							</div>
+  							<div class="fraction2">
+  								Trip
+  							</div>
+  							<div class="fraction1">
+  								Class
+  							</div>
+  							<div class="fraction1">
+  								Price
+  							</div>
+  							<div class="fraction3">
+  								Status
+  							</div>
+  						</div>
+  						<div class="request">
+  							<div class="fraction1">
+  								<span class="bold">3062</span><br/>
+  								<span>08/08/18</span>
+  							</div>
+  							<div class="fraction2">
+  								Apapa, Lagos, Nigeria<br/>
+  								<span class="blue-color bold">to </span>
+  								Ore-Ondo Road, Ondo, Nigeria
+  							</div>
+  							<div class="fraction1">
+  								40ft Flatbed
+  							</div>
+  							<div class="fraction1">
+  								7,854,000<br/>
+  								<span>NGN</span>
+  							</div>
+  							<div class="fraction3 mustard-color">
+  								<div class="status">PENDING</div>
+  								<div class="arrow">
+  									<i class="material-icons center_item">arrow_forward</i>
+  								</div>
+  							</div>
+  						</div>
+  						<div class="request">
+  							<div class="fraction1">
+  								<span class="bold">3062</span><br/>
+  								<span>08/08/18</span>
+  							</div>
+  							<div class="fraction2">
+  								Apapa, Lagos, Nigeria<br/>
+  								<span class="blue-color bold">to </span>
+  								Ore-Ondo Road, Ondo, Nigeria
+  							</div>
+  							<div class="fraction1">
+  								40ft Flatbed
+  							</div>
+  							<div class="fraction1">
+  								7,854,000<br/>
+  								<span>NGN</span>
+  							</div>
+  							<div class="fraction3 mustard-color">
+  								<div class="status">PENDING</div>
+  								<div class="arrow">
+  									<i class="material-icons center_item">arrow_forward</i>
+  								</div>
+  							</div>
+  						</div>
+  						<div class="request">
+  							<div class="fraction1">
+  								<span class="bold">3062</span><br/>
+  								<span>08/08/18</span>
+  							</div>
+  							<div class="fraction2">
+  								Apapa, Lagos, Nigeria<br/>
+  								<span class="blue-color bold">to </span>
+  								Ore-Ondo Road, Ondo, Nigeria
+  							</div>
+  							<div class="fraction1">
+  								40ft Flatbed
+  							</div>
+  							<div class="fraction1">
+  								7,854,000<br/>
+  								<span>NGN</span>
+  							</div>
+  							<div class="fraction3 mustard-color">
+  								<div class="status">PENDING</div>
+  								<div class="arrow">
+  									<i class="material-icons center_item">arrow_forward</i>
+  								</div>
+  							</div>
+  						</div>
+  						<div class="request">
+  							<div class="fraction1">
+  								<span class="bold">3062</span><br/>
+  								<span>08/08/18</span>
+  							</div>
+  							<div class="fraction2">
+  								Apapa, Lagos, Nigeria<br/>
+  								<span class="blue-color bold">to </span>
+  								Ore-Ondo Road, Ondo, Nigeria
+  							</div>
+  							<div class="fraction1">
+  								40ft Flatbed
+  							</div>
+  							<div class="fraction1">
+  								7,854,000<br/>
+  								<span>NGN</span>
+  							</div>
+  							<div class="fraction3 mustard-color">
+  								<div class="status">PENDING</div>
+  								<div class="arrow">
+  									<i class="material-icons center_item">arrow_forward</i>
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+  					<div class="additional">
+  						<div class="label">
+  							You have 265 additional trips
+  						</div>
+  						<div class="fraction3 mustard-color">
+							<div class="status">LOAD MORE</div>
+							<div class="arrow">
+								<i class="material-icons center_item">arrow_forward</i>
+							</div>
+						</div>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="clear_both"></div>
+  		</div>
+  		<div class="footer">
+  			<div class="bio">
+  				<img src="img/kobo.png">
+  				<div class="text">
+  					The company is disrupting the $150 billion Africa logistics industry, which still mostly relies on telephones, opaque pricing and full of expensive middlemen.
+  				</div>
+  			</div>
+  			<div class="fraction">
+  				<div class="title">For Shippers</div>
+  				<div class="quicklinks">
+  					<div class="quicklink">Login</div>
+  					<div class="quicklink">Terms of Service</div>
+  					<div class="quicklink">Privacy Policy</div>
+  				</div>
+  			</div>
+  			<div class="fraction">
+  				<div class="title">For Carriers</div>
+  				<div class="quicklinks">
+  					<div class="quicklink">Login</div>
+  					<div class="quicklink">Terms of Service</div>
+  					<div class="quicklink">Privacy Policy</div>
+  				</div>
+  			</div>
+  			<div class="fraction">
+  				<div class="title">Contact</div>
+  				<div class="quicklinks">
+  					<div class="quicklink">22, Ikorodu Road, Jibowu Yaba,</div>
+  					<div class="quicklink">
+  						info@kobo360.com<br/>
+  						+234 818 021 2345
+  					</div>
+  				</div>
+  			</div>
+  			<div class="copyright">
+  				© Copyright 2018, All Rights Reserved, Kobo Logistics
+  			</div>
+  			<div class="onlinechat mustard">
+  				Online Chat
+  			</div>
+  		</div>
+  	</body>
+</html>
